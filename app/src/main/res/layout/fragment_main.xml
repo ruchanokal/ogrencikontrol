@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MainFragment">
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/kullaniciAdiAnaFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kullanici"
+        android:fontFamily="@font/manrope_medium"
+        android:textSize="17sp"
+        android:textColor="@color/appButtonColor"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/adminLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ogrenciBilgileriButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/girisyapselector"
+                android:ems="10"
+                android:fontFamily="@font/manrope_medium"
+                android:text="@string/ogrenci_bilgileri"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/servisListesiButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/girisyapselector"
+                android:ems="10"
+                android:fontFamily="@font/manrope_medium"
+                android:text="@string/servis_listesi"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/planlamaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/girisyapselector"
+                android:ems="10"
+                android:fontFamily="@font/manrope_medium"
+                android:text="@string/planlama"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/duyuruOlusturButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/girisyapselector"
+                android:ems="10"
+                android:fontFamily="@font/manrope_medium"
+                android:text="@string/duyuru_olustur"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/duyurularButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/girisyapselector"
+                android:ems="10"
+                android:fontFamily="@font/manrope_medium"
+                android:text="@string/duyurular"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:layout_marginTop="10dp" />
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ogrenciEkleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="25dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/addperson"
+            app:tint="@color/white"
+            android:backgroundTint="@color/appButtonColor" />
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <ImageView
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/signOutButton"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_baseline_power_settings_new_24" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

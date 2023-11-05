@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/emailpasswordborder"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:paddingBottom="5dp">
+
+    <TextView
+        android:id="@+id/ogrenciAdiText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        tools:text="Mehmet Sezgin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/manrope_medium"/>
+
+    <TextView
+        android:id="@+id/ogrenciNumaraText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        tools:text="05355353535"
+        android:layout_marginStart="10dp" />
+
+</LinearLayout>

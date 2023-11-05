@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Öğrenci Kontrol</string>
+    <string name="e_posta_adresinizi_giriniz">E-posta adresinizi giriniz</string>
+    <string name="sifrenizi_giriniz">Şifrenizi giriniz</string>
+    <string name="bir_hesabin_yok_mu">Bir Hesabın Yok Mu?</string>
+    <string name="kayit_ol">Kayıt Ol</string>
+    <string name="sifremi_unuttum">Şifremi Unuttum</string>
+    <string name="kullanici_girisi_string">KULLANICI GİRİŞİ</string>
+    <string name="kullanici_adi_seciniz">Kullanıcı Adı Seçiniz</string>
+    <string name="bir_sifre_giriniz">Bir şifre giriniz</string>
+    <string name="sifreyi_tekrar_giriniz">Şifreyi tekrar giriniz</string>
+    <string name="tamam">Tamam</string>
+    <string name="forget_pass_desc">Aşağıdaki boşluğa e-posta adresinizi yazıp TAMAM butonuna tıkladıktan sonra şifrenizi yenilemeniz için e-posta adresinize bir link gönderilecektir. Birkaç dakika içerisinde gelen kutunuzu kontrol edebilirsiniz.</string>
+    <string name="kullanici">Kullanıcı</string>
+    <string name="exit_desc">Hesabınızdan çıkmak istediğinize emin misiniz?</string>
+    <string name="exitstring">Çıkış Yap</string>
+    <string name="cancelstring">Vazgeç</string>
+    <string name="evetstring">evet</string>
+    <string name="admin_girisi">Admin Girişi</string>
+    <string name="ogretmen_girisi">Öğretmen Girişi</string>
+    <string name="ogrenci_bilgileri">Öğrenci Bilgileri</string>
+    <string name="servis_listesi">Servis Listesi</string>
+    <string name="planlama">Planlama</string>
+    <string name="duyurular">Duyurular</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bir_ogrenci_arayin">Bir Öğrenci Arayın..</string>
+    <string name="ogrenci_adi">Öğrenci Adı Soyadı</string>
+    <string name="ogrenci_bilgilerini_giriniz">Öğrenci Bilgilerini Giriniz</string>
+    <string name="ogrenci_tel_no">Telefon numarası</string>
+    <string name="report_info">Rapor Bilgisi giriniz</string>
+    <string name="enlem_bilgisi_giriniz">Enlem Bilgisi Giriniz</string>
+    <string name="boylam_bilgisi_giriniz">Boylam Bilgisi Giriniz</string>
+    <string name="ogrenci_ekle">Öğrenci Ekle</string>
+    <string name="duyuru_olustur">Duyuru Oluştur</string>
+    <string name="bir_baslik_girin">Bir Başlık Giriniz</string>
+    <string name="duyuru_metniniz">Duyuru Metninizi Giriniz</string>
+    <string name="onay_bekleniyor">Onay bekleniyor...</string>
+    <string name="onay_bekleniyor_desc">Admin tarafından onaylanmanız bekleniyor!</string>
+</resources>

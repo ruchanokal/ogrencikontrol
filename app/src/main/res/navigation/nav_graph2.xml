@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph2"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ogrenci.kontrol.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_ogrenciBilgileriFr"
+            app:destination="@id/ogrenciBilgileriFr" />
+        <action
+            android:id="@+id/action_mainFragment_to_duyurularFr"
+            app:destination="@id/duyurularFr" />
+        <action
+            android:id="@+id/action_mainFragment_to_ogrenciEkleFr"
+            app:destination="@id/ogrenciEkleFr" />
+        <action
+            android:id="@+id/action_mainFragment_to_servisListesiFr"
+            app:destination="@id/servisListesiFr" />
+        <action
+            android:id="@+id/action_mainFragment_to_duyuruOlusturFr"
+            app:destination="@id/duyuruOlusturFr" />
+        <action
+            android:id="@+id/action_mainFragment_to_servisListesi2Fr"
+            app:destination="@id/servisListesi2Fr" />
+    </fragment>
+    <fragment
+        android:id="@+id/ogrenciBilgileriFr"
+        android:name="com.ogrenci.kontrol.fragments.OgrenciBilgileriFr"
+        android:label="fragment_ogrenci_bilgileri"
+        tools:layout="@layout/fragment_ogrenci_bilgileri" >
+        <action
+            android:id="@+id/action_ogrenciBilgileriFr_to_ogrenciBilgiDetayFr"
+            app:destination="@id/ogrenciBilgiDetayFr" />
+    </fragment>
+    <fragment
+        android:id="@+id/duyurularFr"
+        android:name="com.ogrenci.kontrol.fragments.DuyurularFr"
+        android:label="fragment_duyurular"
+        tools:layout="@layout/fragment_duyurular" >
+        <action
+            android:id="@+id/action_duyurularFr_to_duyuruDetaylariFr"
+            app:destination="@id/duyuruDetaylariFr" />
+    </fragment>
+    <fragment
+        android:id="@+id/ogrenciEkleFr"
+        android:name="com.ogrenci.kontrol.fragments.OgrenciEkleFr"
+        android:label="fragment_ogrenci_ekle"
+        tools:layout="@layout/fragment_ogrenci_ekle" />
+    <fragment
+        android:id="@+id/servisListesiFr"
+        android:name="com.ogrenci.kontrol.fragments.ServisListesiFr"
+        android:label="fragment_servis_listesi"
+        tools:layout="@layout/fragment_servis_listesi" />
+    <fragment
+        android:id="@+id/ogrenciBilgiDetayFr"
+        android:name="com.ogrenci.kontrol.fragments.OgrenciBilgiDetayFr"
+        android:label="fragment_ogrenci_bilgi_detay"
+        tools:layout="@layout/fragment_ogrenci_bilgi_detay" >
+        <argument
+            android:name="ogrenci"
+            app:nullable="true"
+            app:argType="com.ogrenci.kontrol.model.Ogrenci" />
+    </fragment>
+    <fragment
+        android:id="@+id/duyuruOlusturFr"
+        android:name="com.ogrenci.kontrol.fragments.DuyuruOlusturFr"
+        android:label="fragment_planlama"
+        tools:layout="@layout/fragment_duyuru_olustur" />
+    <fragment
+        android:id="@+id/duyuruDetaylariFr"
+        android:name="com.ogrenci.kontrol.fragments.DuyuruDetaylariFr"
+        android:label="fragment_duyuru_detaylari"
+        tools:layout="@layout/fragment_duyuru_detaylari">
+
+        <argument
+            android:name="duyuruBildirim"
+            app:nullable="true"
+            app:argType="com.ogrenci.kontrol.model.DuyuruBildirim" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/servisListesi2Fr"
+        android:name="com.ogrenci.kontrol.fragments.ServisListesi2Fr"
+        android:label="fragment_servis_listesi2"
+        tools:layout="@layout/fragment_servis_listesi2" />
+</navigation>

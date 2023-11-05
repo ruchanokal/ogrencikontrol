@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="15dp"
+    android:backgroundTint="#C8C8C8"
+    android:layout_marginHorizontal="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#595959"
+            android:paddingVertical="8dp"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:visibility="visible"
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:indeterminate="true"
+                android:translationZ="2dp"
+                android:elevation="10dp"
+                android:layout_marginStart="12dp"
+                android:indeterminateTint="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/dialogTitleText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/onay_bekleniyor"
+                android:paddingStart="20dp"
+                android:paddingVertical="12dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/manrope_medium"
+                android:textSize="18sp"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialogDescriptionText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="@string/onay_bekleniyor_desc"
+            android:fontFamily="@font/manrope_medium"
+            android:textSize="17sp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:textColor="@color/black"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

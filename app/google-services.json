@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "830889507354",
+    "project_id": "ogrencikontrol-1fe3c",
+    "storage_bucket": "ogrencikontrol-1fe3c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830889507354:android:a07253e58947199c7aefa3",
+        "android_client_info": {
+          "package_name": "com.ogrenci.kontrol"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsznXZRWH0606ddt1BMCRqtgr9ZPOONJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.ServisListesi2Fr">
+
+    <TextView
+        android:id="@+id/saatText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        tools:text="Saat 09:00"
+        android:fontFamily="@font/manrope_medium"
+        android:textColor="@color/black"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Servis Listesi"
+        android:layout_gravity="center"
+        android:fontFamily="@font/manrope_medium"
+        android:textColor="@color/appButtonColor"
+        android:textSize="22sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="12dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Öğrenciler"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="wrap_content"
+            android:text="Öğretmen Seç"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/saat_bg2"
+        android:layout_marginHorizontal="6dp"
+        android:id="@+id/ogrenciyeOgretmenEklemeRecyclerView"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/gonderButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/girisyapselector"
+        android:ems="9"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Gönder"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

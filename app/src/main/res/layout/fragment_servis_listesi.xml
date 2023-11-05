@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragments.ServisListesiFr">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Servis Listesi"
+        android:layout_gravity="center"
+        android:fontFamily="@font/manrope_medium"
+        android:textColor="@color/appButtonColor"
+        android:textSize="22sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/saatDokuz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09:00"
+            android:layout_gravity="center"
+            android:background="@drawable/saat_bg_selector"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/appButtonColor"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/saatOnBir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:00"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/saat_bg_selector"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/appButtonColor"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/saatOnDort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14:00"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/saat_bg_selector"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/appButtonColor"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/saatOnAlti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16:00"
+            android:layout_marginStart="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/saat_bg_selector"
+            android:fontFamily="@font/manrope_medium"
+            android:textColor="@color/appButtonColor"
+            android:textSize="22sp"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchBarLayout"
+        app:endIconMode="clear_text"
+        android:hint="@string/bir_ogrenci_arayin"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/searchBarEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.71"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/saat_bg2"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/ogrenciSecmeRecyclerView"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/saat_bg2"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/ogrenciEklemeRecyclerView"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/kaydetVeIlerleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center"
+        android:background="@drawable/girisyapselector"
+        android:ems="9"
+        android:fontFamily="@font/manrope_medium"
+        android:text="Kaydet ve İlerle"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSifre" />
+
+</LinearLayout>
