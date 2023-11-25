@@ -10,12 +10,14 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.google.firebase.firestore.FirebaseFirestore
 import com.ogrenci.kontrol.databinding.OgrenciOgretmenEklemeRowBinding
 import com.ogrenci.kontrol.model.Ogrenci
 
 class OgrenciyeOgretmenEklemeAdapter(val ogrenciList: ArrayList<Ogrenci>
                                     , val ogretmenList: ArrayList<String>
                                     , val saat : String
+                                    , val db : FirebaseFirestore
                                     , val onTeacherSelectedListener: OnTeacherSelectedListener): RecyclerView.Adapter<OgrenciyeOgretmenEklemeAdapter.OgrenciEklemeHolder>() {
 
 
@@ -40,6 +42,7 @@ class OgrenciyeOgretmenEklemeAdapter(val ogrenciList: ArrayList<Ogrenci>
         Log.i(TAG,"ogrenciList: " + ogrenciList)
         val ogrenci = ogrenciList.get(position) as HashMap<String,String>
         holder.binding.ogrenciAdiText.text = ogrenci.get("isim")
+        holder.binding.numText.text = "${(position +1)}"
 
         val adapter = ArrayAdapter(holder.itemView.context, R.layout.simple_spinner_item, ogretmenList)
         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
@@ -59,6 +62,16 @@ class OgrenciyeOgretmenEklemeAdapter(val ogrenciList: ArrayList<Ogrenci>
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
+
+    }
+
+    fun deleteItemByItem(){
+
+        Log.e(TAG,"ogrenciList: " + ogrenciList)
+
+        ogrenciList.removeAt(0)
+        notifyItemRemoved(0)
+        notifyItemRangeChanged(0, ogrenciList.size)
 
     }
 

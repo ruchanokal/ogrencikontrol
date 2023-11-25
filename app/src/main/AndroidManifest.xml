@@ -16,6 +16,10 @@
         tools:targetApi="31" >
 
         <meta-data
+            android:name="com.onesignal.NotificationOpened.DEFAULT"
+            android:value="DISABLE" />
+
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCIRXzhtuxHyHn2jNNSrOirM5FeFn0UO2k" />
 
@@ -25,7 +29,6 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <meta-data

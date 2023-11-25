@@ -1,12 +1,10 @@
 package com.ogrenci.kontrol.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.ogrenci.kontrol.databinding.OgrenciEklemeRowBinding
-import com.ogrenci.kontrol.databinding.OgrenciSecmeRowBinding
 import com.ogrenci.kontrol.model.Ogrenci
 
 class OgrenciEklemeAdapter(val eklenenOgrenciList : ArrayList<Ogrenci>): RecyclerView.Adapter<OgrenciEklemeAdapter.OgrenciEklemeHolder>() {

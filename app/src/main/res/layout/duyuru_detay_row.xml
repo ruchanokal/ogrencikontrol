@@ -20,7 +20,6 @@
         tools:text="1"
         android:fontFamily="@font/montserrat_bold"/>
 
-
     <TextView
         android:id="@+id/ogrenciAdiText"
         android:layout_width="0dp"

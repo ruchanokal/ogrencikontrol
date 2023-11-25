@@ -400,9 +400,7 @@ class AdminSignInFr : Fragment() {
             }
 
         }.addOnFailureListener { exception ->
-
             Log.e(TAG,"exception: " + exception.localizedMessage)
-
         }
 
     }

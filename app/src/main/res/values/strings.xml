@@ -37,4 +37,6 @@
     <string name="duyuru_metniniz">Duyuru Metninizi Giriniz</string>
     <string name="onay_bekleniyor">Onay bekleniyor...</string>
     <string name="onay_bekleniyor_desc">Admin tarafından onaylanmanız bekleniyor!</string>
+    <string name="ogrenci_sil">Öğrenciyi Sil</string>
+    <string name="ogrenci_sil_desc">Öğrenciyi silmek istediğinize emin misiniz?</string>
 </resources>

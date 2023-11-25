@@ -2,19 +2,17 @@ package com.ogrenci.kontrol.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.google.firebase.firestore.ServerTimestamp
 import com.ogrenci.kontrol.adapter.OgrenciyeOgretmenEklemeAdapter
 import com.ogrenci.kontrol.databinding.FragmentServisListesi2Binding
 import com.ogrenci.kontrol.model.Duyuru
@@ -37,6 +35,7 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
     private var ogretmenList = arrayListOf<String>()
     var reference : ListenerRegistration? = null
     var reference2 : ListenerRegistration? = null
+    var reference3 : ListenerRegistration? = null
     private lateinit var db : FirebaseFirestore
     private var saat : String = ""
     private var eklenenOgrenciList = arrayListOf<Ogrenci>()
@@ -69,6 +68,8 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
 
         reference2 = db.collection("ServisListesi").addSnapshotListener { value, error ->
 
+            Log.i(TAG,"ServisListesi reference2 addSnapshotListener called")
+
             if (error != null) {
                 Toast.makeText(requireContext(),"Error: " + error.localizedMessage , Toast.LENGTH_LONG).show()
             } else {
@@ -76,6 +77,7 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
                 if (value != null){
 
                     if (!value.isEmpty) {
+
 
                         eklenenOgrenciList.clear()
 
@@ -93,8 +95,10 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
 
                         }
 
-                        binding.saatText.text = saat
+                        Log.i(TAG,"eklenenOgrenciList: " + eklenenOgrenciList)
+                        Log.i(TAG,"eklenenOgrenciList pos-0: " + eklenenOgrenciList.get(0))
 
+                        binding.saatText.text = saat
                         ogrenciEklemeAdapter?.notifyDataSetChanged()
 
                     }
@@ -120,8 +124,13 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
                     allTeachersSelected = false
                     break
                 } else {
-                    val duyuru = Duyuru(eklenenOgrenciList.get(i).isim,selectedTeacher)
-                    duyuruList.add(duyuru)
+
+                    val eklenenOgrenciMap = eklenenOgrenciList.get(i) as HashMap<String,String>
+
+                    eklenenOgrenciMap.get("isim")?.let {
+                        val duyuru = Duyuru(it,selectedTeacher)
+                        duyuruList.add(duyuru)
+                    }
                 }
             }
             if (allTeachersSelected) {
@@ -139,6 +148,7 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
 
                 db.collection("Duyurular").add(hashMap).addOnSuccessListener {
                     Toast.makeText(requireContext(), "Duyuru oluşturuldu", Toast.LENGTH_SHORT).show()
+                    deleteServisListesiCollection()
                     pushNotification(baslik,aciklama)
                 }
             } else {
@@ -149,9 +159,46 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
 
     }
 
+    private fun deleteServisListesiCollection() {
+
+        reference2?.remove()
+
+        reference3 = db.collection("ServisListesi").addSnapshotListener { value, error ->
+
+            Log.i(TAG,"ServisListesi reference3 addSnapshotListener called")
+
+            if (error != null) {
+                Toast.makeText(requireContext(),"Error: " + error.localizedMessage , Toast.LENGTH_LONG).show()
+            } else {
+
+                if (value != null){
+                    if (!value.isEmpty) {
+
+                        val documents = value.documents
+                        reference3?.remove()
+                        for (document in documents){
+
+                            db.collection("ServisListesi").document(document.id).delete().addOnSuccessListener {
+                                Log.i(TAG,"deleted!!")
+
+                                for (pos in 0..(eklenenOgrenciList.size -1)) {
+                                    ogrenciEklemeAdapter?.deleteItemByItem()
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+        }
+    }
+
     private fun createRecyclerView() {
 
-        ogrenciEklemeAdapter = OgrenciyeOgretmenEklemeAdapter(eklenenOgrenciList,ogretmenList,saat,this)
+        ogrenciEklemeAdapter = OgrenciyeOgretmenEklemeAdapter(eklenenOgrenciList,ogretmenList,saat,db,this)
         binding.ogrenciyeOgretmenEklemeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.ogrenciyeOgretmenEklemeRecyclerView.adapter = ogrenciEklemeAdapter
 
@@ -240,7 +287,7 @@ class ServisListesi2Fr : Fragment(), OgrenciyeOgretmenEklemeAdapter.OnTeacherSel
     }
 
     override fun onTeacherSelected(position: Int, teacher: String) {
-        Log.i(TAG,"pos: " + position + ", teacher: " + teacher)
+        //Log.i(TAG,"pos: " + position + ", teacher: " + teacher)
     }
 
     private fun backButton() {

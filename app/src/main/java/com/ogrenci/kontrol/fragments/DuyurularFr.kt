@@ -17,7 +17,6 @@ import com.ogrenci.kontrol.adapter.DuyuruAdapter
 import com.ogrenci.kontrol.databinding.FragmentDuyurularBinding
 import com.ogrenci.kontrol.model.Duyuru
 import com.ogrenci.kontrol.model.DuyuruBildirim
-import com.ogrenci.kontrol.model.Ogrenci
 
 
 class DuyurularFr : Fragment() {

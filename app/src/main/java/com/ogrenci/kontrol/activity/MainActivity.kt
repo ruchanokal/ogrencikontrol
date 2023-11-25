@@ -2,10 +2,8 @@ package com.ogrenci.kontrol.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupWithNavController
-import com.ogrenci.kontrol.R
 import com.ogrenci.kontrol.databinding.ActivityMainBinding
+import com.onesignal.OneSignal
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +16,5 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
     }
-
-
 
 }

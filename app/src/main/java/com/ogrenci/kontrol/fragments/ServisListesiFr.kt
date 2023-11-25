@@ -192,7 +192,7 @@ class ServisListesiFr : Fragment() {
 
                             if (isim != null && telNo != null && latitude != null && longitude != null) {
                                 val myLocation = MyLocation(latitude,longitude)
-                                val ogrenci = Ogrenci(isim,telNo,myLocation,raporBilgisi)
+                                val ogrenci = Ogrenci(isim,telNo,myLocation,raporBilgisi,document.id)
                                 secilenOgrenciList.add(ogrenci)
                             }
 

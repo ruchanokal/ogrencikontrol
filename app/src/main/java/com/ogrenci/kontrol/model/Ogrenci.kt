@@ -8,7 +8,8 @@ import android.os.Parcelable
 class Ogrenci(val isim : String,
               val telNo : String,
               val konum: MyLocation,
-              val raporBilgisi: String?) : Parcelable {
+              val raporBilgisi: String?,
+              val documentId : String?) : Parcelable {
     override fun describeContents(): Int {
         TODO("Not yet implemented")
     }

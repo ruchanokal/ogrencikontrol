@@ -34,7 +34,6 @@ class MainFragment : Fragment() {
     private var _binding : FragmentMainBinding? = null
     private val binding get() = _binding!!
     private val TAG = "MainFragment"
-    var reference : ListenerRegistration? = null
     private lateinit var alertDialog: AlertDialog.Builder
     lateinit var mAuth: FirebaseAuth
     private lateinit var db : FirebaseFirestore
@@ -133,11 +132,13 @@ class MainFragment : Fragment() {
             db.collection(collectionName).document(it).get().addOnSuccessListener { doc ->
 
                 if (doc != null) {
-
                     if (doc.exists()){
 
                         kullaniciAdi = doc["kullaniciAdi"] as String
-                        binding.kullaniciAdiAnaFragment.text = kullaniciAdi
+
+                        _binding?.let {
+                            binding.kullaniciAdiAnaFragment.text = kullaniciAdi
+                        }
 
                     }
                 }
@@ -207,8 +208,6 @@ class MainFragment : Fragment() {
             alertDialog.setMessage(getString(R.string.exit_desc))
             alertDialog.setCancelable(false)
             alertDialog.setPositiveButton(getString(R.string.exitstring)) { dialog,which ->
-
-                reference?.remove()
 
                 mAuth.signOut()
                 val intent = Intent(requireActivity(),SignInActivity::class.java)

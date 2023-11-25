@@ -14,10 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import com.ogrenci.kontrol.R
 import com.ogrenci.kontrol.adapter.OgrenciAdapter
-import com.ogrenci.kontrol.databinding.FragmentAdminSignInBinding
-import com.ogrenci.kontrol.databinding.FragmentMainBinding
 import com.ogrenci.kontrol.databinding.FragmentOgrenciBilgileriBinding
 import com.ogrenci.kontrol.model.MyLocation
 import com.ogrenci.kontrol.model.Ogrenci
@@ -92,12 +89,16 @@ class OgrenciBilgileriFr : Fragment() {
                             val isim = document.getString("isim")
                             val telNo = document.getString("telNo")
                             val raporBilgisi = document.get("raporBilgisi") as? String
+
+                            Log.i(TAG,"isim: " + isim)
+
                             val latitude = document.getDouble("latitude")
                             val longitude = document.getDouble("longitude")
 
+
                             if (isim != null && telNo != null && latitude != null && longitude != null) {
                                 val myLocation = MyLocation(latitude,longitude)
-                                val ogrenci = Ogrenci(isim,telNo,myLocation,raporBilgisi)
+                                val ogrenci = Ogrenci(isim,telNo,myLocation,raporBilgisi,document.id)
                                 ogrenciList.add(ogrenci)
                             }
 
