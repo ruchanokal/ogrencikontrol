@@ -50,6 +50,7 @@ class OgrenciBilgileriFr : Fragment() {
         db = FirebaseFirestore.getInstance()
 
         createRecyclerView()
+
         ogrencileriGetir()
 
         backButton()

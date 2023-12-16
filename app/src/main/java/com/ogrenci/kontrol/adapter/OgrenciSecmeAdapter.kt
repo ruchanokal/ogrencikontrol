@@ -16,14 +16,6 @@ class OgrenciSecmeAdapter(val secilenOgrenciList : ArrayList<Ogrenci>, val ogren
     private var filteredList: ArrayList<Ogrenci> = secilenOgrenciList
 
     private var selectedList = arrayListOf<Ogrenci>()
-    val isSelectedList = mutableListOf<Boolean>()
-
-    init {
-        isSelectedList.clear()
-        for (i in 0 until secilenOgrenciList.size) {
-            isSelectedList.add(false)
-        }
-    }
 
 
     inner class OgrenciSecmeHolder(val binding: OgrenciSecmeRowBinding) : ViewHolder(binding.root) {
@@ -32,22 +24,27 @@ class OgrenciSecmeAdapter(val secilenOgrenciList : ArrayList<Ogrenci>, val ogren
 
             Log.i(TAG,"OgrenciSecmeHolder")
 
-
-
             binding.ogrenciCheckBox.setOnCheckedChangeListener { compoundButton, isChecked ->
 
                 Log.e(TAG,"ogrenciCheckBox checkChangeListener called")
+                Log.e(TAG,"secilenOgrenciList item: " + filteredList[adapterPosition].isim)
+                Log.e(TAG, "selectedList-1: ${selectedList.size}")
+                Log.e(TAG, "isChecked: $isChecked")
 
                 if (isChecked) {
-                    if (!selectedList.contains(secilenOgrenciList[adapterPosition]))
-                        selectedList.add(secilenOgrenciList[adapterPosition])
+                    if (!selectedList.contains(filteredList[adapterPosition]))
+                        selectedList.add(filteredList[adapterPosition])
                 } else {
-                    selectedList.remove(secilenOgrenciList[adapterPosition])
+                    selectedList.remove(filteredList[adapterPosition])
                 }
 
                 val position = adapterPosition
 
-                isSelectedList[position] = isChecked
+                filteredList.get(adapterPosition).isSelected = isChecked
+
+                selectedList.forEach {
+                    Log.e(TAG, "selectedList-2: ${it.isim}")
+                }
                 ogrenciEklemeAdapter.updateList(selectedList)
             }
         }
@@ -65,7 +62,7 @@ class OgrenciSecmeAdapter(val secilenOgrenciList : ArrayList<Ogrenci>, val ogren
         Log.i(TAG,"onBindViewHolder")
 
         holder.binding.ogrenciAdiText.text = filteredList.get(position).isim
-        holder.binding.ogrenciCheckBox.isChecked = isSelectedList[position]
+        holder.binding.ogrenciCheckBox.isChecked = filteredList.get(position).isSelected
 
     }
 
@@ -76,23 +73,11 @@ class OgrenciSecmeAdapter(val secilenOgrenciList : ArrayList<Ogrenci>, val ogren
     fun updateData(newData: ArrayList<Ogrenci>) {
 
         Log.i(TAG,"updateData")
-
-        // Update isSelectedList size and fill with false for new data
-        isSelectedList.clear()
-        for (i in 0 until newData.size) {
-            isSelectedList.add(false)
-        }
-
         notifyDataSetChanged()
     }
 
     fun unCheckSelectedList() {
         selectedList.clear()
-        isSelectedList.indices.forEach { i ->
-            if (isSelectedList[i]) {
-                isSelectedList[i] = false
-            }
-        }
         notifyDataSetChanged()
     }
 

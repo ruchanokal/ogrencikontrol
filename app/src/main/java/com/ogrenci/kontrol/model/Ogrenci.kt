@@ -9,7 +9,8 @@ class Ogrenci(val isim : String,
               val telNo : String,
               val konum: MyLocation,
               val raporBilgisi: String?,
-              val documentId : String?) : Parcelable {
+              val documentId : String?,
+              var isSelected : Boolean = false) : Parcelable {
     override fun describeContents(): Int {
         TODO("Not yet implemented")
     }
